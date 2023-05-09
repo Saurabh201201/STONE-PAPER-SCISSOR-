@@ -1,0 +1,53 @@
+import java.util.*;
+public class STC
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		System.out.println("STONE-PAPER-SCISSOR");
+		System.out.println("If you want to quit the game just type - Quit");
+		System.out.println("User can enter STONE,PAPER,SCISSOR & Quit");
+		String ar[]={"STONE","PAPER","SCISSOR","QUIT"};
+		boolean end=false;
+		int us=0;
+		int cs=0;
+		while(end==false){
+		    int r=(int)(Math.random()*(3-1+1));
+		    System.out.print("ENTER PLAYER'S MOVE : ");
+		    String uc=sc.next().toUpperCase();
+		    if(uc.equals(ar[3])){
+		        break;
+		    }
+		    else if(uc.equals("STONE") && ar[r].equals("SCISSOR"))
+		    {
+		        System.out.println("COMPUTER'S MOVE : SCISSOR");
+		        us+=1;
+		    }
+		    else if(uc.equals("PAPER") && ar[r].equals("STONE"))
+		    {
+		        System.out.println("COMPUTER'S MOVE : STONE");
+		        us+=1;
+		    }
+		    else if(uc.equals("SCISSOR") && ar[r].equals("PAPER")){
+		        System.out.println("COMPUTER'S MOVE : PAPER");
+		        us+=1;
+		    }
+		    else if(uc.equals(ar[r])){
+		        System.out.println("COMPUTER'S MOVE : "+uc);
+		        continue;
+		    }
+		    else{
+		        System.out.println("COMPUTER'S MOVE : "+ar[r]);
+		        cs+=1;
+		    }
+		}
+		if(us>cs){
+		    System.out.println("Congratulations!!! You Won :-)");
+		}
+		if(cs>us){
+		    System.out.println("Better luck next time! :-]");
+		}
+		if(cs==us){
+		    System.out.println("Score Levels!");
+		}
+	}
+}
